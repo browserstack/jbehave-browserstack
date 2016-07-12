@@ -18,7 +18,7 @@
 
 - Update `pom.xml` in your project.
 - Copy `src/test/java/com/browserstack/BrowserStackJBehaveRunner.java` and `src/test/resources/conf/*` to your project.
-- Adjust your configuration file as per `src/test/resources/conf/*.conf.json`. Here is the full list of [BrowserStack configuration capabilities](https://www.browserstack.com/automate/capabilities)
+- Adjust your configuration files as per `src/test/resources/conf/*.conf.json`. Here is the full list of [BrowserStack configuration capabilities](https://www.browserstack.com/automate/capabilities)
 
 ## Notes
 
