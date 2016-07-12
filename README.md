@@ -16,9 +16,9 @@
 
 ## Integrating with your existing test suite
 
-- Update ```pom.xml``` in your project.
-- Copy src/test/java/com/browserstack/BrowserStackJBehaveRunner.java and src/test/resources/conf/* to your project.
-- Adjust your configuration file as per ```*.conf.json```. Here is the full list of [BrowserStack configuration capabilities](https://www.browserstack.com/automate/capabilities)
+- Update `pom.xml` in your project.
+- Copy `src/test/java/com/browserstack/BrowserStackJBehaveRunner.java` and `src/test/resources/conf/*` to your project.
+- Adjust your configuration file as per `src/test/resources/conf/*.conf.json`. Here is the full list of [BrowserStack configuration capabilities](https://www.browserstack.com/automate/capabilities)
 
 ## Notes
 
