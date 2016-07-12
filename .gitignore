@@ -1,6 +1,5 @@
-*.class
-*.jar
-*.war
-*.ear
+*.png
+target/
 local.log
-target
+.idea
+*.iml

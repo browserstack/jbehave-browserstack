@@ -1,4 +1,4 @@
-package com.browserstack.runner;
+package com.browserstack.single;
 
 import java.text.SimpleDateFormat;
 
@@ -19,13 +19,12 @@ import org.jbehave.core.steps.InjectableStepsFactory;
 import org.jbehave.core.steps.ParameterConverters.DateConverter;
 import org.openqa.selenium.WebDriver;
 
-import com.browserstack.steps.GoogleSearchSteps;
+import com.browserstack.single.steps.GoogleSteps;
 
-public class StoryEmbedder extends Embedder{
-
+public class SingleEmbedder extends Embedder {
   private WebDriver driver;
 
-  public StoryEmbedder(WebDriver driver) {
+  public SingleEmbedder(WebDriver driver) {
     this.driver = driver;
   }
 
@@ -36,7 +35,7 @@ public class StoryEmbedder extends Embedder{
 
   @Override
   public Configuration configuration() {
-    Class<? extends StoryEmbedder> embedderClass = this.getClass();
+    Class<? extends SingleEmbedder> embedderClass = this.getClass();
     return new MostUsefulConfiguration()
       .useStoryLoader(new LoadFromClasspath(embedderClass.getClassLoader()))
       .useStoryReporterBuilder(new StoryReporterBuilder()
@@ -53,7 +52,7 @@ public class StoryEmbedder extends Embedder{
 
   @Override
   public InjectableStepsFactory stepsFactory() {
-    return new InstanceStepsFactory(configuration(), new GoogleSearchSteps(driver));
+    return new InstanceStepsFactory(configuration(), new GoogleSteps(driver));
   }
 
 }
