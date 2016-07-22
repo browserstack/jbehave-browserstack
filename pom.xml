@@ -48,7 +48,7 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.5</version>
                 <configuration>
-                    <test>BrowserStackJBehaveRunner.java</test>
+                    <skip>true</skip>
                 </configuration>
             </plugin>
         </plugins>

@@ -45,13 +45,15 @@ public class BrowserStackJBehaveRunner {
 
     @Parameters
     public static Collection<Object[]> data() throws Exception {
-        JSONParser parser = new JSONParser();
-        config = (JSONObject) parser.parse(new FileReader("src/test/resources/conf/" + System.getProperty("config")));
-        int envs = ((JSONArray)config.get("environments")).size();
-
         List<Object[]> taskIDs = new ArrayList<Object[]>();
-        for(int i=0; i<envs; i++) {
-            taskIDs.add(new Object[] {i});
+        if(System.getProperty("config") != null) {
+            JSONParser parser = new JSONParser();
+            config = (JSONObject) parser.parse(new FileReader("src/test/resources/conf/" + System.getProperty("config")));
+            int envs = ((JSONArray)config.get("environments")).size();
+
+            for(int i=0; i<envs; i++) {
+              taskIDs.add(new Object[] {i});
+            }
         }
 
         return taskIDs;
