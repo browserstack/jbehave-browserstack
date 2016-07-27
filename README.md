@@ -1,35 +1,26 @@
-# JBehave-Browserstack
+# jbehave-browserstack
 
-Execute [JBehave](https://github.com/jbehave/jbehave-core) scripts on BrowserStack.
+[JBehave](https://github.com/jbehave/jbehave-core) Integration with BrowserStack.
 
-## Usage
+## Setting up a sample test
 
-### Prerequisites
+- Clone the repo
+- Install dependencies `mvn install`
+- Update `*.conf.json` files inside the `src/test/resources/conf` directory with your BrowserStack Username and Access Key. (These can be found in the [settings](https://www.browserstack.com/accounts/settings) section on BrowserStack accounts page)
 
-Java and Maven
+## Running the sample test
 
-### Clone the repo
+- To run single test, run `mvn test -P single`
+- To run parallel tests, run `mvn test -P parallel`
+- To run local tests, run `mvn test -P local`
 
-`git clone https://github.com/browserstack/jbehave-browserstack.git`
+## Integrating with your existing test suite
 
-### BrowserStack Authentication
+- Update `pom.xml` in your project.
+- Copy `src/test/java/com/browserstack/BrowserStackJBehaveRunner.java` and `src/test/resources/conf/*` to your project.
+- Adjust your configuration files as per `src/test/resources/conf/*.conf.json`. Here is the full list of [BrowserStack configuration capabilities](https://www.browserstack.com/automate/capabilities)
 
-Export the environment variables for the username and access key of your BrowserStack account.
-These can be found on the automate accounts page on [BrowserStack](https://www.browserstack.com/accounts/automate)
+## Notes
 
-`export BROWSERSTACK_USERNAME=<browserstack-username>`
-
-`export BROWSERSTACK_ACCESS_KEY=<browserstack-access-key>`
-
-### Run the tests
-
- - To start a single test, run: `mvn clean install`
- - To start parallel tests, run: `TEST_TYPE=parallel mvn clean install`
- - To start local tests, run: `TEST_TYPE=local mvn clean install`
- - To start local tests in parallel, run: `TEST_TYPE=local,parallel mvn clean install`
-
-------
-
-#### How to specify the capabilities
-
-The [Code Generator](https://www.browserstack.com/automate/node#setting-os-and-browser) can come in very handy when specifying the capabilities especially for mobile devices.
+- In order to test on different set of browsers, check out our [code generator](https://www.browserstack.com/automate/python#setting-os-and-browser)
+- You can export the environment variables for the Username and Access Key of your BrowserStack account using `export BROWSERSTACK_USERNAME=<browserstack-username> && export BROWSERSTACK_ACCESS_KEY=<browserstack-access-key>`
