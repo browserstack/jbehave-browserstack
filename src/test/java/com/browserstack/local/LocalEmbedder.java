@@ -1,7 +1,8 @@
-package com.browserstack.single;
+package com.browserstack.local;
 
 import java.text.SimpleDateFormat;
 
+import com.browserstack.local.steps.LocalSteps;
 import org.jbehave.core.configuration.Configuration;
 import org.jbehave.core.configuration.MostUsefulConfiguration;
 import org.jbehave.core.embedder.Embedder;
@@ -18,8 +19,6 @@ import org.jbehave.core.steps.InstanceStepsFactory;
 import org.jbehave.core.steps.InjectableStepsFactory;
 import org.jbehave.core.steps.ParameterConverters.DateConverter;
 import org.openqa.selenium.WebDriver;
-
-import com.browserstack.single.steps.LocalSteps;
 
 public class LocalEmbedder extends Embedder {
   private WebDriver driver;
