@@ -21,10 +21,10 @@ import org.openqa.selenium.WebDriver;
 
 import com.browserstack.single.steps.GoogleSteps;
 
-public class SingleEmbedder extends Embedder {
+public class SampleEmbedder extends Embedder {
   private WebDriver driver;
 
-  public SingleEmbedder(WebDriver driver) {
+  public SampleEmbedder(WebDriver driver) {
     this.driver = driver;
   }
 
@@ -35,7 +35,7 @@ public class SingleEmbedder extends Embedder {
 
   @Override
   public Configuration configuration() {
-    Class<? extends SingleEmbedder> embedderClass = this.getClass();
+    Class<? extends SampleEmbedder> embedderClass = this.getClass();
     return new MostUsefulConfiguration()
       .useStoryLoader(new LoadFromClasspath(embedderClass.getClassLoader()))
       .useStoryReporterBuilder(new StoryReporterBuilder()
