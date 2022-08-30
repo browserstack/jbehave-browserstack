@@ -10,12 +10,11 @@
 
 * Clone the repo
 * Install dependencies `mvn install`
-* Update `*.conf.json` files inside the `src/test/resources/conf` directory with your [BrowserStack Username and Access Key](https://www.browserstack.com/accounts/settings)
+* Update `browserstack.yml` file inside the root directory with your [BrowserStack Username and Access Key](https://www.browserstack.com/accounts/settings)
 
 ## Running your tests
-* To run a single test, run `mvn test -P single`
-* To run local tests, run `mvn test -P local`
-* To run parallel tests, run `mvn test -P parallel`
+* To run a sample parallel test, run `mvn test -P sample`
+* To run local tests, update your `browserstack.yml` file with `browserstackLocal: true` and run `mvn test -P local`
 
  Understand how many parallel sessions you need by using our [Parallel Test Calculator](https://www.browserstack.com/automate/parallel-calculator?ref=github)
 
@@ -28,9 +27,3 @@
   export BROWSERSTACK_USERNAME=<browserstack-username> &&
   export BROWSERSTACK_ACCESS_KEY=<browserstack-access-key>
   ```
-  
-## Additional Resources
-* [Documentation for writing Automate test scripts in Java](https://www.browserstack.com/automate/java)
-* [Customizing your tests on BrowserStack](https://www.browserstack.com/automate/capabilities)
-* [Browsers & mobile devices for selenium testing on BrowserStack](https://www.browserstack.com/list-of-browsers-and-platforms?product=automate)
-* [Using REST API to access information about your tests via the command-line interface](https://www.browserstack.com/automate/rest-api)
