@@ -6,6 +6,7 @@
   "capabilities": {
     "build": "jbehave-browserstack",
     "name": "parallel_test",
+    "browserstack.source": "jbehave:sample-master-v1.0",
     "browserstack.debug": true
   },
 
