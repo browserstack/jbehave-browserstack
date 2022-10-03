@@ -4,8 +4,8 @@
   "key": "BROWSERSTACK_ACCESS_KEY",
 
   "capabilities": {
-    "build": "jbehave-browserstack",
-    "name": "local_test",
+    "build": "browserstack-build-1",
+    "name": "BStack local jbehave",
     "browserstack.source": "jbehave:sample-master-v1.0",
     "browserstack.debug": true,
     "browserstack.local": true
