@@ -64,6 +64,7 @@ public class BrowserStackJBehaveRunner {
         JSONArray envs = (JSONArray) config.get("environments");
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setCapability("browserstack.source","jbehave:sample-master:v1.0");
 
         Map<String, String> envCapabilities = (Map<String, String>) envs.get(taskID);
         Iterator it = envCapabilities.entrySet().iterator();
