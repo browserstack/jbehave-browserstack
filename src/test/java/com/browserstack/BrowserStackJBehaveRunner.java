@@ -36,8 +36,12 @@ public class BrowserStackJBehaveRunner {
         HashMap<String, Object> bStackOptions = new HashMap<>();
         bStackOptions.put("source", "jbehave:sample-sdk:v1.0");
         capabilities.setCapability("bstack:options", bStackOptions);
-        this.driver = new RemoteWebDriver(
-                new URL("https://" + userName + ":" + accessKey + "@hub.browserstack.com/wd/hub"), capabilities);
+        try {
+            this.driver = new RemoteWebDriver(
+                    new URL("https://" + userName + ":" + accessKey + "@hub.browserstack.com/wd/hub"), capabilities);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     @After
