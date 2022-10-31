@@ -1,21 +1,35 @@
 {
   "server": "hub.browserstack.com",
-  "user": "BROWSERSTACK_USERNAME",
-  "key": "BROWSERSTACK_ACCESS_KEY",
-
+  "userName": "BROWSERSTACK_USERNAME",
+  "accessKey": "BROWSERSTACK_ACCESS_KEY",
   "capabilities": {
-    "build": "browserstack-build-1",
-    "name": "BStack parallel jbehave",
-    "browserstack.debug": true
+    "bstack:options": {
+      "buildName": "browserstack-build-1",
+      "sessionName": "BStack parallel jbehave",
+      "debug": true
+    }
   },
-
-  "environments": [{
-    "browser": "chrome"
-  },{
-    "browser": "firefox"
-  },{
-    "browser": "safari"
-  },{
-    "browser": "internet explorer"
-  }]
+  "environments": [
+    {
+      "browserName": "chrome",
+      "bstack:options": {
+        "os": "OS X",
+        "osVersion": "Big Sur"
+      }
+    },
+    {
+      "browserName": "firefox",
+      "bstack:options": {
+        "os": "Windows",
+        "osVersion": "10"
+      }
+    },
+    {
+      "browserName": "safari",
+      "bstack:options": {
+        "os": "OS X",
+        "osVersion": "Monterey"
+      }
+    }
+  ]
 }
