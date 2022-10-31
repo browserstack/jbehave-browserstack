@@ -1,16 +1,23 @@
 {
   "server": "hub.browserstack.com",
-  "user": "BROWSERSTACK_USERNAME",
-  "key": "BROWSERSTACK_ACCESS_KEY",
-
+  "userName": "BROWSERSTACK_USERNAME",
+  "accessKey": "BROWSERSTACK_ACCESS_KEY",
   "capabilities": {
-    "build": "browserstack-build-1",
-    "name": "BStack local jbehave",
-    "browserstack.debug": true,
-    "browserstack.local": true
+    "bstack:options": {
+      "buildName": "browserstack-build-1",
+      "sessionName": "BStack local jbehave",
+      "debug": true,
+      "local": true
+    }
   },
-
-  "environments": [{
-    "browser": "chrome"
-  }]
+  "environments": [
+    {
+      "bstack:options": {
+        "os": "OS X",
+        "osVersion": "Monterey"
+      },
+      "browserName": "chrome",
+      "browserVersion": "latest-1"
+    }
+  ]
 }
