@@ -32,7 +32,9 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 public class BrowserStackJBehaveRunner {
 
     public WebDriver driver;
-    private Local l;
+    private static Local l;
+    private static Object lock = new Object();
+    private static Integer parallels = 0;
 
     private static JSONObject config;
 
@@ -95,14 +97,20 @@ public class BrowserStackJBehaveRunner {
         if (accessKey == null) {
             accessKey = (String) config.get("accessKey");
         }
-
-        if ((l == null || !l.isRunning()) && capabilities.getCapability("bstack:options") != null
-                && bStackOptions.get("local") != null
-                && ((Boolean) bStackOptions.get("local")) == true) {
-            l = new Local();
-            Map<String, String> options = new HashMap<>();
-            options.put("key", accessKey);
-            l.start(options);
+        synchronized (lock) {
+            parallels++;
+            if ((l == null || !l.isRunning()) && capabilities.getCapability("bstack:options") != null
+                    && bStackOptions.get("local") != null
+                    && ((Boolean) bStackOptions.get("local")) == true) {
+                l = new Local();
+                Map<String, String> options = new HashMap<>();
+                options.put("key", accessKey);
+                try {
+                    l.start(options);
+                } catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
         }
 
         driver = new RemoteWebDriver(new URL("http://" + username + ":" + accessKey + "@" + config.get("server") + "/wd/hub"), capabilities);
@@ -110,8 +118,11 @@ public class BrowserStackJBehaveRunner {
 
     @After
     public void tearDown() throws Exception {
-        driver.quit();
-        if (l != null) l.stop();
+        synchronized (lock){
+            parallels--;
+            driver.quit();
+            if (l != null && parallels == 0) l.stop();
+        }
     }
 
     @Test
