@@ -62,8 +62,6 @@
                 <version>3.0.0-M5</version>
                 <configuration>
                     <test>com/browserstack/BrowserStackJBehaveRunner.java</test>
-                    <parallel>methods</parallel>
-                    <threadCount>3</threadCount>
                     <systemPropertyVariables>
                         <embedder>${embedder.default}</embedder>
                         <stories>${stories.default}</stories>
@@ -87,8 +85,6 @@
                         <version>3.0.0-M5</version>
                         <configuration>
                             <test>com/browserstack/BrowserStackJBehaveRunner.java</test>
-                            <parallel>methods</parallel>
-                            <threadCount>3</threadCount>
                             <systemPropertyVariables>
                                 <embedder>com.browserstack.single.SampleEmbedder</embedder>
                                 <stories>stories/sample.story</stories>
