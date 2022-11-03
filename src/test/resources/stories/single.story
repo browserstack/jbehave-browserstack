@@ -1,5 +1,5 @@
-Scenario: Google's Search Functionality
+Scenario: Add product to cart
 
-When I type query as "BrowserStack"
-Then I submit
-Then I should see title "BrowserStack - Google Search"
+Given I am on the website "https://www.bstackdemo.com"
+When I select a product and click on "Add to cart" button
+Then the product should be added to cart

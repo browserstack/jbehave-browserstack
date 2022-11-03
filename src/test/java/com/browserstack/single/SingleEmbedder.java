@@ -19,7 +19,7 @@ import org.jbehave.core.steps.InjectableStepsFactory;
 import org.jbehave.core.steps.ParameterConverters.DateConverter;
 import org.openqa.selenium.WebDriver;
 
-import com.browserstack.single.steps.GoogleSteps;
+import com.browserstack.single.steps.BrowserStackSteps;
 
 public class SingleEmbedder extends Embedder {
   private WebDriver driver;
@@ -52,7 +52,7 @@ public class SingleEmbedder extends Embedder {
 
   @Override
   public InjectableStepsFactory stepsFactory() {
-    return new InstanceStepsFactory(configuration(), new GoogleSteps(driver));
+    return new InstanceStepsFactory(configuration(), new BrowserStackSteps(driver));
   }
 
 }
