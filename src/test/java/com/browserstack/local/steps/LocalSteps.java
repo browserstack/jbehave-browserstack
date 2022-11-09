@@ -21,6 +21,6 @@ public class LocalSteps {
 
   @Then("I should see \"$keyword\"")
   public void pageShouldContain(String keyword) {
-    Assert.assertTrue(page.getPageSource().contains(keyword));
+    Assert.assertTrue(page.getPageTitle().contains(keyword));
   }
 }
