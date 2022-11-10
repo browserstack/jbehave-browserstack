@@ -19,8 +19,8 @@ public class LocalSteps {
     page.openHealthCheck();
   }
 
-  @Then("I should see \"$keyword\"")
-  public void pageShouldContain(String keyword) {
+  @Then("the title should contain \"$keyword\"")
+  public void pageTitleShouldContain(String keyword) {
     Assert.assertTrue(page.getPageTitle().contains(keyword));
   }
 }
