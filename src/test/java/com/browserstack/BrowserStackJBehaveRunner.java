@@ -95,18 +95,18 @@ public class BrowserStackJBehaveRunner {
         }
 
         synchronized (lock) {
-          parallels++;
-          if ((l == null || !l.isRunning()) && capabilities.getCapability("browserstack.local") != null && capabilities.getCapability("browserstack.local") == "true") {
-              l = new Local();
-              Map<String, String> options = new HashMap<>();
-              options.put("key", accessKey);
-              try {
-                  l.start(options);
-              } catch (Exception e){
-                  e.printStackTrace();
-              }
-          }
-      }
+            parallels++;
+            if ((l == null || !l.isRunning()) && capabilities.getCapability("browserstack.local") != null && capabilities.getCapability("browserstack.local") == "true") {
+                l = new Local();
+                Map<String, String> options = new HashMap<>();
+                options.put("key", accessKey);
+                try {
+                    l.start(options);
+                } catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
+        }
 
         driver = new RemoteWebDriver(new URL("http://"+username+":"+accessKey+"@"+config.get("server")+"/wd/hub"), capabilities);
     }
