@@ -63,7 +63,7 @@ public class BrowserStackJBehaveRunner {
 
         MutableCapabilities capabilities = new MutableCapabilities();
         HashMap<String, Object> bStackOptions = new HashMap<>();
-        bStackOptions.put("source", "jbehave:sample-master:v1.0");
+        bStackOptions.put("source", "jbehave:sample-master:v1.1");
 
         Map<String, Object> envCapabilities = (Map<String, Object>) envs.get(taskID);
         Iterator<Map.Entry<String, Object>> it = envCapabilities.entrySet().iterator();
