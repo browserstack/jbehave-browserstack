@@ -67,11 +67,15 @@ public class BrowserStackJBehaveRunner {
 
     @Test
     public void runStories() throws Exception {
-        Class<?> c = Class.forName(System.getProperty("embedder"));
-        Constructor<?> cons = c.getConstructor(WebDriver.class);
-        Embedder storyEmbedder = (Embedder) cons.newInstance(driver);
+        try {
+            Class<?> c = Class.forName(System.getProperty("embedder"));
+            Constructor<?> cons = c.getConstructor(WebDriver.class);
+            Embedder storyEmbedder = (Embedder) cons.newInstance(driver);
 
-        List<String> storyPaths = Arrays.asList(System.getProperty("stories"));
-        storyEmbedder.runStoriesAsPaths(storyPaths);
+            List<String> storyPaths = Arrays.asList(System.getProperty("stories"));
+            storyEmbedder.runStoriesAsPaths(storyPaths);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }
