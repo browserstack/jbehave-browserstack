@@ -1,12 +1,11 @@
 package com.browserstack.local.steps;
 
+import com.browserstack.local.pages.LocalPage;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
 import org.junit.Assert;
 
 import org.openqa.selenium.WebDriver;
-
-import com.browserstack.local.pages.LocalPage;
 
 public class LocalSteps {
   private LocalPage page;
