@@ -34,7 +34,7 @@ public class BrowserStackJBehaveRunner {
         accessKey = System.getenv("BROWSERSTACK_ACCESS_KEY") != null ? System.getenv("BROWSERSTACK_ACCESS_KEY") : (String) browserstackYamlMap.get("accessKey");
         MutableCapabilities capabilities = new MutableCapabilities();
         HashMap<String, Object> bStackOptions = new HashMap<>();
-        bStackOptions.put("source", "jbehave:sample-master:v1.1");
+        bStackOptions.put("source", "jbehave:sample-master:v1.2");
         capabilities.setCapability("bstack:options", bStackOptions);
         try {
             this.driver = new RemoteWebDriver(
