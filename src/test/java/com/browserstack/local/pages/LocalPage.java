@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class LocalPage {
-  private String DEFAULT_LOCAL_URL = "http://bs-local.com:45691/check";
+  private String DEFAULT_LOCAL_URL = "http://bs-local.com:45454/";
   private WebDriver driver;
   private WebElement element;
 
@@ -12,8 +12,8 @@ public class LocalPage {
     this.driver = driver;
   }
 
-  public String getPageSource(){
-    return driver.getPageSource();
+  public String matchTitle() throws Throwable {
+    return driver.getTitle();
   }
 
   public void openHealthCheck() {
