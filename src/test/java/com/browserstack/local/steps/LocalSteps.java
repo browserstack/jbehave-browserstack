@@ -20,7 +20,7 @@ public class LocalSteps {
   }
 
   @Then("I should see \"$keyword\"")
-  public void pageShouldContain(String keyword) {
-    Assert.assertTrue(page.getPageSource().contains(keyword));
+  public void pageShouldContain(String keyword) throws Throwable {
+    Assert.assertTrue(page.matchTitle().contains(keyword));
   }
 }
