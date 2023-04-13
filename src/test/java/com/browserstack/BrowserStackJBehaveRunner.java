@@ -26,6 +26,7 @@ public class BrowserStackJBehaveRunner {
 
     @Before
     public void setUp() throws Exception {
+        System.out.println("It's a Test!!");
         if (browserstackYamlMap == null) {
             File file = new File(getUserDir() + "/browserstack.yml");
             browserstackYamlMap = convertYamlFileToMap(file, new HashMap<>());
