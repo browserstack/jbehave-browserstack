@@ -35,6 +35,7 @@ public class BrowserStackJBehaveRunner {
         MutableCapabilities capabilities = new MutableCapabilities();
         HashMap<String, Object> bStackOptions = new HashMap<>();
         bStackOptions.put("source", "jbehave:sample-sdk:v1.0");
+        bStackOptions.put("sessionName", "BStack Sample JBehave");
         capabilities.setCapability("bstack:options", bStackOptions);
         try {
             this.driver = new RemoteWebDriver(
