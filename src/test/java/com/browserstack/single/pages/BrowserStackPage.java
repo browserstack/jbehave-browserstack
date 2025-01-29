@@ -15,7 +15,7 @@ public class BrowserStackPage {
 
     private By firstProductAddToCartButton = By.xpath("//*[@id=\"1\"]/div[4]");
 
-    private By cartPane = By.className("float-cart__content");
+    private By cartPane = By.cssSelector(".float-cart__content");
 
     private By productCartText = By.xpath("//*[@id=\"__next\"]/div/div/div[2]/div[2]/div[2]/div/div[3]/p[1]");
 

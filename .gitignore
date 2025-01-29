@@ -5,3 +5,8 @@ local.log
 *.iml
 logs/
 browserstack.err
+bstack_*
+build
+gradle
+.gradle
+gradlew*

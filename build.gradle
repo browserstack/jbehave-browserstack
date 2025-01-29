@@ -1,0 +1,46 @@
+plugins {
+    id 'java'
+    id 'com.browserstack.gradle-sdk' version "1.1.2" // sdk plugin
+}
+
+repositories { mavenCentral() }
+
+dependencies {
+    implementation 'org.seleniumhq.selenium:selenium-java:4.1.0'
+    implementation 'org.jbehave:jbehave-core:3.10'
+    implementation 'org.yaml:snakeyaml:2.2'
+    implementation 'com.browserstack:browserstack-java-sdk:latest.release'
+}
+
+group = 'com.browserstack'
+version = '1.0-SNAPSHOT'
+description = 'jbehave-browserstack'
+sourceCompatibility = '1.8'
+
+def browserstackSDKArtifact = configurations.compileClasspath.resolvedConfiguration.resolvedArtifacts.find { it.name == 'browserstack-java-sdk' }
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+tasks.withType(Test) {
+    systemProperties = System.properties
+    jvmArgs += "-javaagent:${browserstackSDKArtifact.file}"
+}
+
+task sampleTest(type: Test) {
+    useJUnit() {
+        dependsOn cleanTest
+        systemProperty('embedder', "com.browserstack.single.SampleEmbedder")
+        systemProperty('stories', "stories/sample.story")
+
+    }
+}
+
+task sampleLocalTest(type: Test) {
+    useJUnit() {
+        dependsOn cleanTest
+        systemProperty('embedder', "com.browserstack.local.LocalEmbedder")
+        systemProperty('stories', "stories/local.story")
+    }
+}
